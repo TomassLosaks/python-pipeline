@@ -1,0 +1,16 @@
+name: Install Python deps
+
+runs:
+  using: "composite"
+
+  steps:
+    - run: echo "Installing pip dependencies..."
+      shell: bash
+
+    - run: python3 -m venv venv
+      working-directory: python-greetings
+      shell: bash
+
+    - run: ./venv/bin/python -m pip install -r requirements.txt
+      working-directory: python-greetings
+      shell: bash
